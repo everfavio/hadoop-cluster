@@ -31,7 +31,6 @@ $ sudo apt-get install default-jdk -y
 todos los pasos se deben realizar con un único usuario con permisos de sudo, en este caso será hadoop
 
 ```shell
-# instalación de java
 $ sudo adduser hadoop # seguir los pasos, escoger una contraseña y aceptar
 ```
 agregar el usuario al grupo sudoers
