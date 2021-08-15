@@ -87,7 +87,7 @@ sudo chown -R hadoop:hadoop  /opt
 se debe asignar los permisos de estas carpetas al usuario hadoop
 
 ```shell
-$ sudo tar -xvf hadoop-3.2.2.tar.gz \
+$ tar -xvf hadoop-3.2.2.tar.gz \
   --directory=/opt/hadoop \
   --strip 1
 ```
