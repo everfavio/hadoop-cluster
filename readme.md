@@ -82,6 +82,8 @@ se deben crear carpetas con la siguiente estructura
   /yarn
     /logs
 ```
+sudo chown -R hadoop:hadoop  /opt
+
 se debe asignar los permisos de estas carpetas al usuario hadoop
 
 ```shell
