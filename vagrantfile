@@ -1,38 +1,38 @@
 Vagrant.configure("2") do |config|
   config.ssh.insert_key = false
-  config.vm.define "master1" do |master1|
-    master1.ssh.insert_key = false
-    master1.vm.network :private_network, ip: "192.168.15.10"
-    master1.vm.box = "generic/debian10"
-    master1.vm.hostname = "hadoop-namenode"
-    master1.vm.boot_timeout = 500
-    master1.vm.provision :shell,
+  config.vm.define "master" do |master|
+    master.ssh.insert_key = false
+    master.vm.network :private_network, ip: "192.168.15.10"
+    master.vm.box = "generic/debian10"
+    master.vm.hostname = "hadoop-namenode"
+    master.vm.boot_timeout = 500
+    master.vm.provision :shell,
       path: "bootstrap.sh"
-    master1.vm.provider :virtualbox do |vb|
+    master.vm.provider :virtualbox do |vb|
       vb.gui = false
       vb.customize ["modifyvm", :id, "--memory", "4048"]
       vb.customize ["modifyvm", :id, "--cpus", "4"]
     end
   end
-  config.vm.define "master2" do |master2|
-    master2.vm.box = "generic/debian10"
-    master2.vm.network :private_network, ip: "192.168.15.11"
-    master2.vm.hostname = "hadoop-datanode-2"
-    master2.vm.boot_timeout = 500
-    master2.vm.provision :shell, path: "bootstrap.sh"
-    master2.vm.provider :virtualbox do |vb|
+  config.vm.define "datanode2" do |datanode2|
+    datanode2.vm.box = "generic/debian10"
+    datanode2.vm.network :private_network, ip: "192.168.15.11"
+    datanode2.vm.hostname = "hadoop-datanode-2"
+    datanode2.vm.boot_timeout = 500
+    datanode2.vm.provision :shell, path: "bootstrap.sh"
+    datanode2.vm.provider :virtualbox do |vb|
       vb.gui = false
       vb.customize ["modifyvm", :id, "--memory", "4048"]
       vb.customize ["modifyvm", :id, "--cpus", "4"]
     end
   end
-  config.vm.define "master3" do |master3|
-    master3.vm.box = "generic/debian10"
-    master3.vm.network :private_network, ip: "192.168.15.12"
-    master3.vm.hostname = "hadoop-datanode-3"
-    master3.vm.boot_timeout = 500
-    master3.vm.provision :shell, path: "bootstrap.sh"
-    master3.vm.provider :virtualbox do |vb|
+  config.vm.define "datanode3" do |datanode3|
+    datanode3.vm.box = "generic/debian10"
+    datanode3.vm.network :private_network, ip: "192.168.15.12"
+    datanode3.vm.hostname = "hadoop-datanode-3"
+    datanode3.vm.boot_timeout = 500
+    datanode3.vm.provision :shell, path: "bootstrap.sh"
+    datanode3.vm.provider :virtualbox do |vb|
       vb.gui = false
       vb.customize ["modifyvm", :id, "--memory", "4048"]
       vb.customize ["modifyvm", :id, "--cpus", "4"]
